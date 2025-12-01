@@ -3,6 +3,7 @@ using UnityEngine;
 public class Enemy_Respawner : MonoBehaviour
 {
     [SerializeField] private GameObject enemyPrefab;
+    [SerializeField] private GameObject goblinPrefab;
     [SerializeField] private Transform[] respawnPoints;
     [SerializeField] private float cooldown = 2f;
     [Space]
