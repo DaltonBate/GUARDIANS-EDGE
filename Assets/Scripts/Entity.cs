@@ -56,7 +56,6 @@ public class Entity : MonoBehaviour
          {
             Entity entityTarget = enemy.GetComponent<Entity>();
             entityTarget.TakeDamage();
-
          }
     }
 

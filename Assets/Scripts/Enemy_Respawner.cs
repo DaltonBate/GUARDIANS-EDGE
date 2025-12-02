@@ -32,14 +32,21 @@ public class Enemy_Respawner : MonoBehaviour
 
     private void CreateNewEnemy()
     {
-       int respawnPointIndex = Random.Range(0, respawnPoints.Length);
-       Vector3 spawnPoint = respawnPoints[respawnPointIndex].position;
+        int respawnPointIndex = Random.Range(0, respawnPoints.Length);
+        Vector3 spawnPoint = respawnPoints[respawnPointIndex].position;
 
-        GameObject newEnemy = Instantiate(enemyPrefab, spawnPoint, Quaternion.identity);
+        // Randomly choose which enemy to spawn
+        GameObject prefabToSpawn = (Random.value > 0.5f) ? enemyPrefab : goblinPrefab;
+
+        GameObject newEnemy = Instantiate(prefabToSpawn, spawnPoint, Quaternion.identity);
 
         bool createdOnTheRight = newEnemy.transform.position.x > player.transform.position.x;
 
-        if (createdOnTheRight) 
-            newEnemy.GetComponent<Enemy>().Flip();     
+        Enemy enemy = newEnemy.GetComponent<Enemy>();
+
+        if (enemy.GetType() != typeof(Goblin) && createdOnTheRight)
+        {
+            enemy.Flip();
+        }
     }
 }
