@@ -1,9 +1,7 @@
 using UnityEngine;
 
-
 public class Enemy : Entity
 {
-
     [Header("Movement details")]
     [SerializeField] protected float moveSpeed = 3.5f;
 
@@ -11,18 +9,19 @@ public class Enemy : Entity
 
     protected override void Update()
     {
-        base.Update();       
+        base.Update();
         HandleAttack();
     }
 
     protected override void HandleAttack()
     {
-        if (playerDetected) 
+        if (playerDetected)
         {
             anim.SetTrigger("attack");
         }
     }
 
+    // Default simple movement for generic enemies
     protected override void HandleMovement()
     {
         if (canMove)

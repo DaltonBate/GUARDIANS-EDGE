@@ -9,7 +9,7 @@ public class Entity : MonoBehaviour
     protected SpriteRenderer sr;
 
     [Header("Health")]
-    [SerializeField] private int maxHealth =1;
+    [SerializeField] private int maxHealth = 1;
     [SerializeField] private int currentHealth;
     [SerializeField] private Material damageMaterial;
     [SerializeField] private float damageFeedbackDuraiton = .1f;
@@ -41,22 +41,23 @@ public class Entity : MonoBehaviour
     }
 
     protected virtual void Update()
-    {       
+    {
         HandleCollision();
         HandleMovement();
         HandleAnimations();
         HandleFlip();
     }
 
-    public void DamageTargets() 
+    public void DamageTargets()
     {
-       Collider2D[] enemyColliders = Physics2D.OverlapCircleAll(attackPoint.position, attackRadius, whatIsTarget);
+        Collider2D[] enemyColliders = Physics2D.OverlapCircleAll(attackPoint.position, attackRadius, whatIsTarget);
 
-         foreach (Collider2D enemy in enemyColliders) 
-         {
+        foreach (Collider2D enemy in enemyColliders)
+        {
             Entity entityTarget = enemy.GetComponent<Entity>();
-            entityTarget.TakeDamage();
-         }
+            if (entityTarget != null)
+                entityTarget.TakeDamage();
+        }
     }
 
     private void TakeDamage()
@@ -66,17 +67,20 @@ public class Entity : MonoBehaviour
         PlayDamageFeedback();
 
         if (currentHealth <= 0)
-            Die();      
+            Die();
     }
 
-    protected virtual void Die() 
+    protected virtual void Die()
     {
         // Die animation
-        anim.enabled = false;
-        col.enabled = false;
+        if (anim != null) anim.enabled = false;
+        if (col != null) col.enabled = false;
 
-        rb.gravityScale = 12;
-        rb.linearVelocity = new Vector2(rb.linearVelocity.x, 15);
+        if (rb != null)
+        {
+            rb.gravityScale = 12;
+            rb.linearVelocity = new Vector2(rb.linearVelocity.x, 15);
+        }
 
         Destroy(gameObject, 3);
     }
@@ -89,9 +93,9 @@ public class Entity : MonoBehaviour
         StartCoroutine(DamageFeedbackCo());
     }
 
-    private IEnumerator DamageFeedbackCo() 
+    private IEnumerator DamageFeedbackCo()
     {
-       Material originalMat = sr.material;
+        Material originalMat = sr.material;
 
         sr.material = damageMaterial;
 
@@ -100,60 +104,63 @@ public class Entity : MonoBehaviour
         sr.material = originalMat;
     }
 
-
-    public virtual void EnableMovement(bool enable) 
+    public virtual void EnableMovement(bool enable)
     {
-        canMove = enable;     
+        canMove = enable;
     }
-
 
     protected void HandleAnimations()
     {
+        if (anim == null) return;
         anim.SetFloat("xVelocity", rb.linearVelocity.x);
         anim.SetFloat("yVelocity", rb.linearVelocity.y);
         anim.SetBool("isGrounded", isGrounded);
     }
 
-
-    protected virtual void HandleAttack() 
+    protected virtual void HandleAttack()
     {
-        if (isGrounded) 
+        if (isGrounded)
         {
             anim.SetTrigger("attack");
         }
-            
     }
 
     protected virtual void HandleMovement()
-    {     
+    {
+        // default: nothing -- children implement movement
     }
 
-    protected virtual void HandleCollision() 
+    protected virtual void HandleCollision()
     {
         isGrounded = Physics2D.Raycast(transform.position, Vector2.down, groundCheckDistance, whatIsGround);
     }
 
-    protected virtual void HandleFlip() 
+    // Keep base flip logic, but child classes (like ChasingEnemy) can override this if needed.
+    protected virtual void HandleFlip()
     {
         if (rb.linearVelocity.x > 0 && facingRight == false)
             Flip();
         else if (rb.linearVelocity.x < 0 && facingRight == true)
             Flip();
     }
-    
 
-    public void Flip() 
+    public void Flip()
     {
-       transform.Rotate(0, 180, 0);
-       facingRight = !facingRight;
+        // Use localScale flip for stability
+        Vector3 s = transform.localScale;
+        s.x *= -1;
+        transform.localScale = s;
+
+        facingRight = !facingRight;
         facingDir = facingDir * -1;
     }
 
     private void OnDrawGizmos()
     {
-        Gizmos.DrawLine(transform.position , transform.position + new Vector3(0, -groundCheckDistance));
+        Gizmos.DrawLine(transform.position, transform.position + new Vector3(0, -groundCheckDistance));
 
-        if(attackPoint != null)
-          Gizmos.DrawWireSphere(attackPoint.position, attackRadius);
+        if (attackPoint != null)
+            Gizmos.DrawWireSphere(attackPoint.position, attackRadius);
     }
+
 }

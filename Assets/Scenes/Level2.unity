@@ -506,88 +506,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 70852957}
   m_CullTransparentMesh: 1
---- !u!1001 &104753686
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 2282179592446716551, guid: 235f4093feeffb84f8d796799681f1bd, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -3.330017
-      objectReference: {fileID: 0}
-    - target: {fileID: 2282179592446716551, guid: 235f4093feeffb84f8d796799681f1bd, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -4.692627
-      objectReference: {fileID: 0}
-    - target: {fileID: 2282179592446716551, guid: 235f4093feeffb84f8d796799681f1bd, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2282179592446716551, guid: 235f4093feeffb84f8d796799681f1bd, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2282179592446716551, guid: 235f4093feeffb84f8d796799681f1bd, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2282179592446716551, guid: 235f4093feeffb84f8d796799681f1bd, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2282179592446716551, guid: 235f4093feeffb84f8d796799681f1bd, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2282179592446716551, guid: 235f4093feeffb84f8d796799681f1bd, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2282179592446716551, guid: 235f4093feeffb84f8d796799681f1bd, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2282179592446716551, guid: 235f4093feeffb84f8d796799681f1bd, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2401117524734797522, guid: 235f4093feeffb84f8d796799681f1bd, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2401117524734797522, guid: 235f4093feeffb84f8d796799681f1bd, type: 3}
-      propertyPath: moveSpeed
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 2401117524734797522, guid: 235f4093feeffb84f8d796799681f1bd, type: 3}
-      propertyPath: currentHealth
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2401117524734797522, guid: 235f4093feeffb84f8d796799681f1bd, type: 3}
-      propertyPath: damageMaterial
-      value: 
-      objectReference: {fileID: 2100000, guid: 66e76ddbe75b42d4d872822f1a001195, type: 2}
-    - target: {fileID: 2401117524734797522, guid: 235f4093feeffb84f8d796799681f1bd, type: 3}
-      propertyPath: groundCheckDistance
-      value: 1.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2401117524734797522, guid: 235f4093feeffb84f8d796799681f1bd, type: 3}
-      propertyPath: whatIsGround.m_Bits
-      value: 64
-      objectReference: {fileID: 0}
-    - target: {fileID: 3256028911494036645, guid: 235f4093feeffb84f8d796799681f1bd, type: 3}
-      propertyPath: m_Name
-      value: Goblin
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 2401117524734797522, guid: 235f4093feeffb84f8d796799681f1bd, type: 3}
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 235f4093feeffb84f8d796799681f1bd, type: 3}
 --- !u!1 &176859331
 GameObject:
   m_ObjectHideFlags: 0
@@ -773,7 +691,7 @@ GameObject:
   - component: {fileID: 282485227}
   m_Layer: 0
   m_Name: Point (1)
-  m_TagString: Untagged
+  m_TagString: Respawn
   m_Icon: {fileID: 1206586993520771344, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -836,7 +754,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
   m_Color: {r: 0.9150943, g: 0.09927912, b: 0.27319545, a: 1}
   m_FlipX: 0
@@ -935,63 +853,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1001 &347159532
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 3317941028151069808, guid: 8b78ba59a4601cb43ae53ee2099aeb5a, type: 3}
-      propertyPath: m_Name
-      value: Enemy
-      objectReference: {fileID: 0}
-    - target: {fileID: 4592298868320759010, guid: 8b78ba59a4601cb43ae53ee2099aeb5a, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -7.55
-      objectReference: {fileID: 0}
-    - target: {fileID: 4592298868320759010, guid: 8b78ba59a4601cb43ae53ee2099aeb5a, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -4.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 4592298868320759010, guid: 8b78ba59a4601cb43ae53ee2099aeb5a, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4592298868320759010, guid: 8b78ba59a4601cb43ae53ee2099aeb5a, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4592298868320759010, guid: 8b78ba59a4601cb43ae53ee2099aeb5a, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4592298868320759010, guid: 8b78ba59a4601cb43ae53ee2099aeb5a, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4592298868320759010, guid: 8b78ba59a4601cb43ae53ee2099aeb5a, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4592298868320759010, guid: 8b78ba59a4601cb43ae53ee2099aeb5a, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4592298868320759010, guid: 8b78ba59a4601cb43ae53ee2099aeb5a, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4592298868320759010, guid: 8b78ba59a4601cb43ae53ee2099aeb5a, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 8b78ba59a4601cb43ae53ee2099aeb5a, type: 3}
 --- !u!1 &451647344
 GameObject:
   m_ObjectHideFlags: 0
@@ -3714,7 +3575,7 @@ GameObject:
   - component: {fileID: 1943607250}
   m_Layer: 0
   m_Name: Point
-  m_TagString: Untagged
+  m_TagString: Respawn
   m_Icon: {fileID: 1206586993520771344, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3777,7 +3638,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
   m_Color: {r: 0.9150943, g: 0.09927912, b: 0.27319545, a: 1}
   m_FlipX: 0
@@ -4231,7 +4092,7 @@ GameObject:
   - component: {fileID: 2045699969}
   m_Layer: 0
   m_Name: Enemy_Respawner
-  m_TagString: Untagged
+  m_TagString: Respawn
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4265,14 +4126,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e69160fa564de3d44be1d4a6ceb540f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPrefab: {fileID: 3317941028151069808, guid: 8b78ba59a4601cb43ae53ee2099aeb5a, type: 3}
-  goblinPrefab: {fileID: 3256028911494036645, guid: 235f4093feeffb84f8d796799681f1bd, type: 3}
+  enemyPrefab: {fileID: 7325033782899319951, guid: 95d04857e2558014797646ef0473a0c0, type: 3}
+  goblinPrefab: {fileID: 6564387629252039231, guid: 72039c6ed930a9a4996573c3163e3cb7, type: 3}
   respawnPoints:
   - {fileID: 1943607249}
   - {fileID: 282485226}
   cooldown: 1.85
   coolDownDecrease: 0.05
   cooldownCap: 0.7
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  blockingLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  spawnYOffset: 2
+  spawnCheckSize: {x: 0.8, y: 0.9}
+  maxActiveEnemies: 90
 --- !u!1 &2053953697
 GameObject:
   m_ObjectHideFlags: 0
@@ -4672,5 +4542,3 @@ SceneRoots:
   - {fileID: 2045699968}
   - {fileID: 260774823}
   - {fileID: 2014256655}
-  - {fileID: 104753686}
-  - {fileID: 347159532}
